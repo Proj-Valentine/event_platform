@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 // import { Inter } from 'next/font/google'
 import { Poppins } from 'next/font/google'
 import './globals.css'
+import { ClerkProvider } from "@clerk/nextjs";
+
 
 // const inter = Inter({ subsets: ['latin'] })
 const poppins = Poppins({ 
@@ -21,9 +23,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      {/* this will apply the poppins font to our app body */}
-      <body className={poppins.variable}>{children}</body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        {/* this will apply the poppins font to our app body */}
+        <body className={poppins.variable}>{children}</body>
+      </html>
+    </ClerkProvider>
   )
 }

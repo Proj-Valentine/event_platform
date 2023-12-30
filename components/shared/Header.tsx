@@ -1,17 +1,22 @@
+import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 
 const Header = () => {
   return (
     <header className="flex justify-between items-center py-4 px-8 bg-white">   
-        <div className="flex items-center justify-center">
-            <img src="/assets/images/logo.png" alt="logo" className="h-10 w-10 mr-2" />
-            <span className="font-semibold text-xl tracking-tight">Evently</span>
+       <div className="">
+        <Link href="/" className="">
+            <Image src="/assets/images/logo.svg" alt="evently logo" width={128} height={38} />
+        </Link>
+        <div className="flex w-32 justify-end gap-3">
+            
         </div>
-        <div className="flex items-center justify-center">
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
-            Sign In
-            </button>
-        </div>
+
+            
+
+
+       </div>
     </header>
    
   )
