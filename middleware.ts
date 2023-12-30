@@ -8,19 +8,40 @@ import { authMiddleware } from "@clerk/nextjs";
 // this middleware from CLEARK will help us to do that once we have the middleware set up
 // we need to configure it to allow some pages to be public and others private
 
+// export default authMiddleware({
+//     publicRoutes: [
+//         '/', 
+//         'events/:id', 
+//         '/api/webhook/clerk', 
+//         '/api/webhook/stripe',
+//         'api/uploadthing'
+//         ],
+//     ignoredRoutes:[
+//         '/api/webhook/clerk', 
+//         '/api/webhook/stripe',
+//         'api/uploadthing' 
+//     ]
+// });
+ 
+// export const config = {
+//   matcher: ['/((?!.+\\.[\\w]+$|_next).*)', '/', '/(api|trpc)(.*)'],
+// };
+ 
+
+ 
 export default authMiddleware({
-    publicRoutes: [
-        '/', 
-        'events/:id', 
-        '/api/webhooks/clerk', 
-        '/api/webhook/stripe',
-        'api/uploadthing'
-        ],
-    ignoredRoutes:[
-        '/api/webhooks/clerk', 
-        '/api/webhook/stripe',
-        'api/uploadthing' 
-    ]
+  publicRoutes: [
+    '/',
+    '/events/:id',
+    '/api/webhook/clerk',
+    '/api/webhook/stripe',
+    '/api/uploadthing'
+  ],
+  ignoredRoutes: [
+    '/api/webhook/clerk',
+    '/api/webhook/stripe',
+    '/api/uploadthing'
+  ]
 });
  
 export const config = {
