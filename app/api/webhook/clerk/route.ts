@@ -3,6 +3,9 @@
 import { Webhook } from 'svix'
 import { headers } from 'next/headers'
 import { WebhookEvent } from '@clerk/nextjs/server'
+import { createUser, deleteUser, updateUser } from '@/lib/actions/user.actions'
+import { clerkClient } from '@clerk/nextjs'
+import { NextResponse } from 'next/server'
  
 export async function POST(req: Request) {
  
@@ -53,8 +56,79 @@ export async function POST(req: Request) {
   const { id } = evt.data;
   const eventType = evt.type;
  
-  console.log(`Webhook with and ID of ${id} and type of ${eventType}`)
-  console.log('Webhook body:', body)
+  // Handle the event , apply any logic you need here
+//    clerk allows us to handle several events in the dashboard, ie users, emails, organizations etc
+//  the event payload will be different for each event type but mostly similar in structure
+//  we can use the event type to determine what to do with the event , the ayload conatins the entire event data
+//  and strutured as 
+//   "data": {
+//     // The event type specific payload will be here.
+//    firstname: 'John',
+//    lastname: 'Doe',
+//    email: 'johndoe@examplecom',
+//   },
+//   "object": "event", // will always be event
+//   "type": "<event>" // user.created, user.updated, user.deleted, email.sent, email.opened, email.clicked,seesion.ended, organization.created, organization.updated, organization.deleted
+// }
+
+
+// create a user objet from the event payload and send to our database when a user is created in clerk
+  if (eventType === 'user.created') {
+
+      //    the naming of the variables are as a result of how the data is structured in the payload, eg first_name, not fristName
+    //    const { id, emailAddress, firstName, lastName, photo,username} = evt.data;
+    // the destructuring depends on how the payload looks like
+   const { id, email_addresses, first_name, last_name, image_url, username} = evt.data;
+   const user = { 
+    clerkId:id,
+    email:email_addresses[0].email_address,
+    username:username!,
+    firstName:first_name,
+    lastName:last_name,
+    photo:image_url,
+   }
+
+//    creating  a user in our database wit the createUser function from user.actions that connect to the database and create the clerk user
+
+   const newUser = await createUser(user);
+
+   if (newUser) {
+    await clerkClient.users.updateUserMetadata(id, {
+        publicMetadata: {
+            userId: newUser._id,
+            },
+        })
+   }
+
+   return NextResponse.json({message: 'OK', user: newUser})
+  }
+
+  if (eventType === 'user.updated') {
+    const {id, image_url, first_name, last_name, username } = evt.data
+
+    const user = {
+      firstName: first_name,
+      lastName: last_name,
+      username: username!,
+      photo: image_url,
+    }
+
+    const updatedUser = await updateUser(id, user)
+
+    return NextResponse.json({ message: 'OK', user: updatedUser })
+  }
+
+  if (eventType === 'user.deleted') {
+    const { id } = evt.data
+
+    const deletedUser = await deleteUser(id!)
+
+    return NextResponse.json({ message: 'OK', user: deletedUser })
+  }
+
+
+//   console.log(`Webhook with and ID of ${id} and type of ${eventType}`)
+//   console.log('Webhook body:', body)
  
   return new Response('', { status: 200 })
 }
