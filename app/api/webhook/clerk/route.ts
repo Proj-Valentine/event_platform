@@ -5,6 +5,12 @@ import { createUser, deleteUser, updateUser } from '@/lib/actions/user.actions'
 import { clerkClient } from '@clerk/nextjs'
 import { NextResponse } from 'next/server'
  
+// this end point in our api will be called by clerk when a user is created, updated or deleted
+// we need to configure the webhook in clerk dashboard to send the event to this endpoint
+//  when events happens clerk will send an HTTP POST request to this endpoint(thats the parameter in the function)
+//  the request will contain the event data in the body of the request
+// the request will also contain the headers that we need to verify the request is coming from clerk and also contain the data we need.
+// we will use the svix package to verify the request and get the data we need from the request and send the data ie write to our database
 export async function POST(req: Request) {
  
   // You can find this in the Clerk Dashboard -> Webhooks -> choose the webhook
@@ -19,6 +25,11 @@ export async function POST(req: Request) {
   const svix_id = headerPayload.get("svix-id");
   const svix_timestamp = headerPayload.get("svix-timestamp");
   const svix_signature = headerPayload.get("svix-signature");
+
+  console.log(headerPayload)
+  console.log(svix_id)
+  console.log(svix_timestamp)
+
  
   // If there are no headers, error out
   if (!svix_id || !svix_timestamp || !svix_signature) {
@@ -31,7 +42,7 @@ export async function POST(req: Request) {
   const payload = await req.json()
   const body = JSON.stringify(payload);
 
-  console.log(body)
+//   console.log(body)
  
   // Create a new Svix instance with your secret.
   const wh = new Webhook(WEBHOOK_SECRET);
@@ -74,6 +85,18 @@ export async function POST(req: Request) {
     const newUser = await createUser(user);
 
 
+    // this is where we update the user metadata in clerk with user _id from the database to keep track of which user is which in clerk
+    //  the newUser object is a mongodb document and has an auto generated  _id property that we can use to update the user metadata in clerk
+    //  we use the clerkClient to update the user metadata in clerk.
+    //  sample document in mongodb 
+//     // { _id: 65909d0d8190d35916b410b8
+//          clerkId: "user_2aHWT9Jo05qp5F4UqJix7TzjQtK"
+//          email: "vkampah@mun.ca"
+//          username: "vala"
+//          firstName: "Valentine Kwame"
+//          lastName: "Ampah"
+//          photo: "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdl…"
+//          __v: 0  }
     if(newUser) {
       await clerkClient.users.updateUserMetadata(id, {
         publicMetadata: {
@@ -85,7 +108,7 @@ export async function POST(req: Request) {
     console.log(`Webhook with and ID of ${id} and type of ${eventType}`)
     console.log('Webhook body:', body)
 
-    return NextResponse.json({ message: 'OK', user: newUser })
+    return NextResponse.json({ message: 'User Created', user: newUser })
   }
 
   if (eventType === 'user.updated') {
@@ -100,7 +123,7 @@ export async function POST(req: Request) {
 
     const updatedUser = await updateUser(id, user)
 
-    return NextResponse.json({ message: 'OK', user: updatedUser })
+    return NextResponse.json({ message: 'User Updated', user: updatedUser })
   }
 
   if (eventType === 'user.deleted') {
@@ -108,7 +131,7 @@ export async function POST(req: Request) {
 
     const deletedUser = await deleteUser(id!)
 
-    return NextResponse.json({ message: 'OK', user: deletedUser })
+    return NextResponse.json({ message: 'User Deleted', user: deletedUser })
   }
  
   return new Response('', { status: 200 })
