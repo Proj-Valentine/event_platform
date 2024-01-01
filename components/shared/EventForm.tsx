@@ -47,7 +47,7 @@ import { IEvent } from "@/lib/database/models/event.model";
 import Dropdown from "./Dropdown";
 import { Checkbox } from "../ui/checkbox";
 import { useUploadThing } from '@/lib/uploadthing';
-import { createEvent } from "@/lib/actions/event.actions";
+import { createEvent, updateEvent } from "@/lib/actions/event.actions";
 
 type EventFormProps = {
   userId: string;
@@ -58,6 +58,7 @@ type EventFormProps = {
 
 const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
   const [files, setFiles] = useState<File[]>([]);
+  // check for events and type and set initial values if events exist or use default values
   const initialValues =
     event && type === "Update"
       ? {
@@ -111,27 +112,27 @@ const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
        }
      }
 
-    // if (type === "Update") {
-    //   if (!eventId) {
-    //     router.back();
-    //     return;
-    //   }
+    if (type === "Update") {
+      if (!eventId) {
+        router.back();
+        return;
+      }
 
-    //   try {
-    //     const updatedEvent = await updateEvent({
-    //       userId,
-    //       event: { ...values, imageUrl: uploadedImageUrl, _id: eventId },
-    //       path: `/events/${eventId}`,
-    //     });
+      try {
+        const updatedEvent = await updateEvent({
+          userId,
+          event: { ...values, imageUrl: uploadedImageUrl, _id: eventId },
+          path: `/events/${eventId}`,
+        });
 
-    //     if (updatedEvent) {
-    //       form.reset();
-    //       router.push(`/events/${updatedEvent._id}`);
-    //     }
-    //   } catch (error) {
-    //     console.log(error);
-    //   }
-    // }
+        if (updatedEvent) {
+          form.reset();
+          router.push(`/events/${updatedEvent._id}`);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
   }
 return (
     <Form {...form}>
