@@ -89,7 +89,19 @@ export function removeKeysFromQuery({ params, keysToRemove }: RemoveUrlQueryPara
   )
 }
 
+// export const handleError = (error: unknown) => {
+//   console.error(error)
+//   throw new Error(typeof error === 'string' ? error : JSON.stringify(error))
+// }
+
+
 export const handleError = (error: unknown) => {
   console.error(error)
-  throw new Error(typeof error === 'string' ? error : JSON.stringify(error))
+  let errorMessage = 'An unknown error occurred'
+  if (typeof error === 'string') {
+    errorMessage = error
+  } else if (error && typeof error === 'object') {
+    errorMessage = JSON.stringify(error)
+  }
+  throw new Error(errorMessage)
 }
