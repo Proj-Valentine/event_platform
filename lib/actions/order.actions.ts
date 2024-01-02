@@ -46,3 +46,21 @@ export const checkoutOrder = async (order: CheckoutOrderParams) => {
     throw error;
   }
 }
+
+//  form a new order successfully paid and save order details to database
+
+export const createOrder = async (order: CreateOrderParams) => {
+  try {
+    await connectToDatabase();
+    
+    const newOrder = await Order.create({
+      ...order,
+      event: order.eventId,
+      buyer: order.buyerId,
+    });
+
+    return JSON.parse(JSON.stringify(newOrder));
+  } catch (error) {
+    handleError(error);
+  }
+}
