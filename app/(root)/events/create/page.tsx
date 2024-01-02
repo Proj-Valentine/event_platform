@@ -11,7 +11,7 @@ const CreateEvent = () => {
 
     // this is the user id retrieved from clerk which is the same as the user id in our database an used as the public meta data in clerk
     const userId = sessionClaims?.userId as string;
-    console.log(userId)
+    // console.log(userId)
 
     return (
         <>

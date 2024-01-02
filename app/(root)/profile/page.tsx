@@ -12,6 +12,7 @@ const ProfilePage = async ({ searchParams }: SearchParamProps) => {
   const { sessionClaims } = auth();
   const userId = sessionClaims?.userId as string;
 
+  // searchParams; to expoose your params url
   const ordersPage = Number(searchParams?.ordersPage) || 1;
   const eventsPage = Number(searchParams?.eventsPage) || 1;
 
@@ -38,11 +39,11 @@ const ProfilePage = async ({ searchParams }: SearchParamProps) => {
           emptyTitle="No event tickets purchased yet"
           emptyStateSubtext="No worries - plenty of exciting events to explore!"
           collectionType="My_Tickets"
-          limit={3}
+          limit={6}
           page={ordersPage}
           urlParamName="ordersPage"
-        //   totalPages={orders?.totalPages}
-          totalPages={2}
+          totalPages={orders?.totalPages}
+          // totalPages={2}
         />
       </section>
 
@@ -62,7 +63,7 @@ const ProfilePage = async ({ searchParams }: SearchParamProps) => {
           emptyTitle="No events have been created yet"
           emptyStateSubtext="Go create some now"
           collectionType="Events_Organized"
-          limit={3}
+          limit={6}
           page={eventsPage}
           urlParamName="eventsPage"
           totalPages={organizedEvents?.totalPages}
