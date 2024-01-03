@@ -12,7 +12,7 @@ const poppins = Poppins({
    })
 // change meta data here
 export const metadata: Metadata = {
-  title: 'Evently',
+  title: 'Streamfy',
   description: 'Event management platform',
   icons:"/assets/images/logo.png",
 }
