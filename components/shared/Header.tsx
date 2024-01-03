@@ -8,6 +8,7 @@ import NavItems from './NavItems'
 import MobileNav from './MobileNav'
 import SignedOutNavigation from './SignedOutNavigation'
 import { UserProfile } from "@clerk/nextjs";
+import { ModeToggle } from '../ui/toggle-mode'
 
 const Header = () => {
   return (
@@ -48,10 +49,11 @@ const Header = () => {
               <Link href="/sign-in">Login In</Link>
             </Button>
             <SignedOutNavigation />
-             {/* <SignInButton></SignInButton> */}
+            {/* <SignInButton></SignInButton> */}
           </SignedOut>
         </div>
       </div>
+      <ModeToggle/>
     </header>
   );
 }
