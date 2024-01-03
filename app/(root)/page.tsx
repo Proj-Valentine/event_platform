@@ -23,28 +23,30 @@ export default async function Home({ searchParams }: SearchParamProps) {
   });
   return (
     <>
-      <section className="bg-primary-50 bg-dotted-pattern bg-contain py-5 md:py-10">
+      <section className="bg-primary-50 bg-contain py-5 md:py-10">
         <div className="wrapper grid grid-cols-1 gap-5 md:grid-cols-2 2xl:gap-0">
           <div className="flex flex-col justify-center gap-8">
             <h1 className="h1-bold">
-              Host, Connect, Celebrate: Your Events, Our Platform!
+              Elevate Your Events: Unite, Engage, and Celebrate with Us!
             </h1>
             <p className="p-regular-20 md:p-regular-24">
-              Book and learn helpful tips from 3,168+ mentors in world-class
-              companies with our global community.
+              Join our global community and gain invaluable insights from over
+              3,000 mentors from top-tier companies. Your journey to success
+              starts here.
             </p>
             <Button size="lg" asChild className="button w-full sm:w-fit">
               <Link href="#events">Explore Now</Link>
             </Button>
           </div>
-
-          <Image
-            src="/assets/images/hero.png"
-            alt="hero"
-            width={1000}
-            height={1000}
-            className="max-h-[70vh] object-contain object-center 2xl:max-h-[50vh]"
-          />
+          <figure>
+            <Image
+              src="/assets/images/hero3.jpg"
+              alt="hero"
+              width={1500}
+              height={1000}
+              className="max-h-[70vh] rounded-md object-center object-cover w-full 2xl:max-h-[50vh]"
+            />
+          </figure>
         </div>
       </section>
 
