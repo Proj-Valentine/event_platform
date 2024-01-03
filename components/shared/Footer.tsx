@@ -31,37 +31,38 @@ const Footer = () => {
         <div className="lg:flex">
           <div className="w-full -mx-6 lg:w-2/5">
             <div className="px-6">
-              <div className="flex flex-row sm:flex-col justify-between">
-                <Link href="/">
-                  <Image
-                    src="/assets/images/logo.svg"
-                    alt="logo"
-                    width={100}
-                    height={38}
-                  />
-                </Link>
+              <div className="flex md:flex-col md:mr-4 flex-row justify-between">
+                <div className="flex w-full  flex-col md:flex-row">
+                  <Link href="/" className="w-36 mr-2">
+                    <Image
+                      src="/assets/images/logo.svg"
+                      alt="streamfy logo"
+                      width={128}
+                      height={38}
+                    />
+                  </Link>
+                  <p className="hidden md:inline-block max-w-sm mt-2 text-gray-500 dark:text-gray-400">
+                    Join over 50,000+ developers and never miss out on new tips,
+                    tutorials, and more.
+                  </p>
+                </div>
 
-                <p className="max-w-sm mt-2 text-gray-500 dark:text-gray-400">
-                  Join over 50,000+ developers and never miss out on new tips,
-                  tutorials, and more.
-                </p>
-                <div className="sm:col-span-2">
-                  <h1 className="max-w-lg text-lg font-semibold text-gray-700 tracking-tight xl:text-2xl dark:text-white">
-                    Subscribe to get updated.
-                  </h1>
+                <div className="w-full flex flex-col justify-start items-start text-start md:m-2">
+                  <h4 className="whitespace-nowrap max-w-lg text-md font-semibold text-gray-700 tracking-tight xl:text-2xl dark:text-white">
+                    Get updated!
+                  </h4>
 
-                  <div className="flex flex-col mx-auto mt-6 space-y-3 md:space-y-0 md:flex-row">
+                  <div className="md:mr-6 flex flex-col w-full justify-start items-start text-center mx-auto mt-6 space-y-3 md:space-y-0">
                     <input
                       id="email"
                       type="text"
-                      className="px-4 py-2 text-gray-700 bg-white border rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-opacity-40 focus:ring-blue-300"
+                      className="mb-1 px-4 py-2 w-20 md:w-3/5 text-gray-700 bg-white border rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-opacity-40 focus:ring-blue-300"
                       placeholder="Email Address"
                     />
 
-                    <button className="w-full px-6 py-2.5 text-sm font-medium tracking-wider text-white transition-colors duration-300 transform md:w-auto md:mx-4 focus:outline-none bg-gray-800 rounded-lg hover:bg-gray-700 focus:ring focus:ring-gray-300 focus:ring-opacity-80">
+                    <Button className="rounded-md" size="lg">
                       Subscribe
-                    </button>
-
+                    </Button>
                   </div>
                 </div>
               </div>

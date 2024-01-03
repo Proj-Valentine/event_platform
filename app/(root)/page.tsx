@@ -31,11 +31,11 @@ export default async function Home({ searchParams }: SearchParamProps) {
             </h1>
             <p className="p-regular-20 md:p-regular-24">
               Join our global community and gain invaluable insights from over
-              3,000 mentors from top-tier companies. Your journey to success
+              50,000 mentors from top-tier companies. Your journey to success
               starts here.
             </p>
             <Button size="lg" asChild className="button w-full sm:w-fit">
-              <Link href="#events">Explore Now</Link>
+              <Link href="#events">Explore Events</Link>
             </Button>
           </div>
           <figure>
@@ -55,7 +55,7 @@ export default async function Home({ searchParams }: SearchParamProps) {
         className="wrapper my-8 flex flex-col gap-8 md:gap-12"
       >
         <h2 className="h2-bold">
-          Trust by <br /> Thousands of Events
+          Globally Trusted <br /> Events hosting platform
         </h2>
 
         <div className="flex w-full flex-col gap-5 md:flex-row">

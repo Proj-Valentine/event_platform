@@ -15,8 +15,8 @@ const CreateEvent = () => {
 
     return (
         <>
-        <section>
-            <h3> Create Event</h3>
+        <section className="mb-2">
+            <h2 className="text-lg font-semibold"> Create Event</h2>
         </section>
         <div>
             <EventForm userId={userId} type="Create"/>
