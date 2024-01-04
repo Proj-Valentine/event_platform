@@ -13,16 +13,20 @@ const CheckoutButton = ({ event }: { event: IEvent }) => {
   const hasEventFinished = new Date(event.endDateTime) < new Date();
 
   return (
-    <div className="flex items-center gap-3">
+    <div className="flex items-center gap-3 dark:text-white">
       {hasEventFinished ? (
         <p className="p-2 text-red-400">
           Sorry, tickets are no longer available.
         </p>
       ) : (
         <>
-        {/* to purchase an event you need to be logged in ie route to sign out page */}
+          {/* to purchase an event you need to be logged in ie route to sign out page */}
           <SignedOut>
-            <Button asChild className="button rounded-full" size="lg">
+            <Button
+              asChild
+              className="button rounded-full dark:text-white"
+              size="lg"
+            >
               <Link href="/sign-in">Get Tickets</Link>
             </Button>
           </SignedOut>
