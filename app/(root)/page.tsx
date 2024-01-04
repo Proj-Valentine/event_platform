@@ -34,7 +34,7 @@ export default async function Home({ searchParams }: SearchParamProps) {
               50,000 mentors from top-tier companies. Your journey to success
               starts here.
             </p>
-            <Button size="lg" asChild className="button w-full sm:w-fit">
+            <Button size="lg" asChild className="button w-full sm:w-fit dark:text-white">
               <Link href="#events">Explore Events</Link>
             </Button>
           </div>
