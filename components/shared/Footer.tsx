@@ -174,19 +174,19 @@ const Footer = () => {
                   href="#"
                   className="block mt-2 text-sm text-gray-600 dark:text-gray-200 hover:underline"
                 >
-                  Mega cloud
+                  Data Engineering
                 </a>
                 <a
-                  href="#"
+                  href="https://swipe.vkampah-app.com/"
                   className="block mt-2 text-sm text-gray-600 dark:text-gray-200 hover:underline"
                 >
-                  Aperion UI
+                  Swipe Social
                 </a>
                 <a
-                  href="#"
+                  href="https://reactanalytics.vkampah-app.com/"
                   className="block mt-2 text-sm text-gray-600 dark:text-gray-200 hover:underline"
                 >
-                  Meraki UI
+                  Data Consultancy Services
                 </a>
               </div>
 

@@ -29,7 +29,7 @@ const EventDetails = async ({params: { id },searchParams}: SearchParamProps) => 
             alt="hero image"
             width={1000}
             height={1000}
-            className="h-full min-h-[300px] object-cover object-center"
+            className="h-full min-h-[300px] object-cover object-center dark:border"
           />
 
           <div className="flex w-full flex-col gap-8 p-5 md:p-10 dark:text-white dark:border">
@@ -38,7 +38,7 @@ const EventDetails = async ({params: { id },searchParams}: SearchParamProps) => 
 
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
                 <div className="flex gap-3">
-                  <p className="p-bold-20 rounded-full bg-green-500/10 px-5 py-2 text-green-700 dark:bg-green-800 dark:text-green-300">
+                  <p className="p-bold-20 rounded-full bg-green-500/10 px-5 py-2 text-green-700 dark:bg-green-600 dark:text-white">
                     {event.isFree ? "FREE" : `$${event.price}`}
                   </p>
                   <p className="p-medium-16 rounded-full bg-grey-500/10 px-4 py-2.5 text-grey-500 dark:bg-grey-600 dark:text-slate-300">
