@@ -10,9 +10,10 @@ import SignedOutNavigation from './SignedOutNavigation'
 import { UserProfile } from "@clerk/nextjs";
 import { ModeToggle } from '../ui/toggle-mode'
 
+
 const Header = () => {
   return (
-    <header className="flex justify-between items-center py-4 px-8 bg-white">
+    <header className="flex justify-between items-center py-4 px-8 dark:text-white">
       <div className="wrapper flex items-center justify-between">
         <Link href="/" className="w-36">
           <Image
@@ -33,7 +34,7 @@ const Header = () => {
             <SignedOutNavigation />
           </nav>
         </SignedOut> */}
-        <div className="flex w-2/5 justify-end items-start gap-3">
+        <div className="flex w-2/5 justify-end items-start gap-3 ">
           {/* set up Clerk */}
           {/* SignedOut component is from clerk to control sign in and out */}
           <SignedIn>
@@ -54,6 +55,7 @@ const Header = () => {
         </div>
       </div>
       <ModeToggle/>
+    
     </header>
   );
 }
