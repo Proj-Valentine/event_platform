@@ -25,7 +25,7 @@ const MobileNav = () => {
   return (
     <nav className="md:hidden dark:text-white">
       <Sheet>
-        <SheetTrigger className="align-middle dark:text-white">
+        <SheetTrigger className="align-middle bg:white dark:bg-black dark:text-white">
           <Image
             src="/assets/icons/menu.svg"
             alt="menu"

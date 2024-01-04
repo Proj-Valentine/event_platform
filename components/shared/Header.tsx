@@ -46,7 +46,7 @@ const Header = () => {
 
           <SignedOut>
             {/*after signput navigate to sign in page */}
-            <Button asChild className="rounded-full md:hidden" size="lg">
+            <Button asChild className="rounded-full md:hidden dark:text-white" size="lg">
               <Link href="/sign-in">Login In</Link>
             </Button>
             <SignedOutNavigation />

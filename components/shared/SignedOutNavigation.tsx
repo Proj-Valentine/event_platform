@@ -20,7 +20,7 @@ const SignedOutNavigation = () => {
             key={link.route}
             className={`${
               isActive && "text-primary-500"
-            } flex-center p-medium-5 whitespace-nowrap`}
+            } flex-center p-medium-5 whitespace-nowrap dark:text-white`}
           >
             <Button asChild className="rounded-full" size="lg">
               <Link href={link.route}>{link.label}</Link>
