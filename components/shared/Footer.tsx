@@ -60,7 +60,7 @@ const Footer = () => {
                       placeholder="Email Address"
                     />
 
-                    <Button className="rounded-md" size="lg">
+                    <Button className="rounded-md dark:text-white" size="lg">
                       Subscribe
                     </Button>
                   </div>
