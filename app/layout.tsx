@@ -17,7 +17,7 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: 'Streamfy',
   description: 'Event management platform',
-  icons:"/assets/images/logo.png",
+  icons:"/assets/images/logo.svg",
 }
 
 export default function RootLayout({
