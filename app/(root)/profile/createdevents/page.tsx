@@ -25,10 +25,10 @@ const CreatedEvents = async ({ searchParams }: SearchParamProps) => {
     <>
 
       {/* Events Organized */}
-      <section className="bg-dotted-pattern bg-cover bg-center py-5 md:py-10">
+      <section className="bg-dotted-pattern bg-cover bg-center py-5 md:py-10 dark:bg-gray-900 dark:mt-4">
         <div className="wrapper flex items-center justify-center sm:justify-between">
           <h3 className="h3-bold text-center sm:text-left">My Events</h3>
-          <Button asChild size="lg" className="button hidden sm:flex">
+          <Button asChild size="lg" className="button hidden sm:flex dark:text-white">
             <Link href="/events/create">Create New Event</Link>
           </Button>
         </div>

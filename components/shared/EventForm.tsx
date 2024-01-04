@@ -138,7 +138,7 @@ return (
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="flex flex-col gap-5"
+        className="flex flex-col gap-5 dark:bg-gray-900 dark:text-black rounded-2xl p-8"
       >
         <div className="flex flex-col gap-5 md:flex-row">
           <FormField

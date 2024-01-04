@@ -14,12 +14,12 @@ import {
 
 export function ModeToggle() {
   const { setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+  // const [mounted, setMounted] = useState(false);
 
-  // After mounting, we have access to the theme
-  useEffect(() => setMounted(true), []);
+  // // After mounting, we have access to the theme
+  // useEffect(() => setMounted(true), []);
 
-  if (!mounted) return null;
+  // if (!mounted) return null;
 
   return (
     <DropdownMenu>

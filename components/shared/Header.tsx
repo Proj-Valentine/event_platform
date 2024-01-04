@@ -13,7 +13,7 @@ import { ModeToggle } from '../ui/toggle-mode'
 
 const Header = () => {
   return (
-    <header className="flex justify-between items-center py-4 px-8 dark:text-white">
+    <header className="flex justify-between items-center py-4 px-8 dark:text-white border-b dark:bg-gray-900">
       <div className="wrapper flex items-center justify-between">
         <Link href="/" className="w-36">
           <Image
@@ -34,12 +34,12 @@ const Header = () => {
             <SignedOutNavigation />
           </nav>
         </SignedOut> */}
-        <div className="flex w-2/5 justify-end items-start gap-3 ">
+        <div className="flex w-2/5 justify-end items-start gap-3 dark:text-white ">
           {/* set up Clerk */}
           {/* SignedOut component is from clerk to control sign in and out */}
           <SignedIn>
             {/* after sign out redirect to Home */}
-            <UserButton afterSignOutUrl="/" showName />
+            <UserButton afterSignOutUrl="/"/>
             {/* <UserProfile /> */}
             <MobileNav />
           </SignedIn>

@@ -23,18 +23,18 @@ import {
 
 const MobileNav = () => {
   return (
-    <nav className="md:hidden">
+    <nav className="md:hidden dark:text-white">
       <Sheet>
-        <SheetTrigger className="align-middle">
+        <SheetTrigger className="align-middle dark:text-white">
           <Image
             src="/assets/icons/menu.svg"
             alt="menu"
             width={24}
             height={24}
-            className="cursor-pointer"
+            className="cursor-pointer dark:bg-white rounded-lg"
           />
         </SheetTrigger>
-        <SheetContent className="flex flex-col gap-6 bg-white md:hidden">
+        <SheetContent className="flex flex-col gap-6 bg-gray-800 md:hidden dar:text-white text-white">
           <Image
             src="/assets/images/logo.svg"
             alt="logo"

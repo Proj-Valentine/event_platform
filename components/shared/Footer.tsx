@@ -41,7 +41,7 @@ const Footer = () => {
                       height={38}
                     />
                   </Link>
-                  <p className="hidden md:inline-block max-w-sm mt-2 text-gray-500 dark:text-gray-400">
+                  <p className="hidden md:inline-block max-w-sm mt-2 text-gray-500 dark:text-gray-200">
                     Join over 50,000+ developers and never miss out on new tips,
                     tutorials, and more.
                   </p>
@@ -124,19 +124,19 @@ const Footer = () => {
                 </h3>
                 <a
                   href="#"
-                  className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline"
+                  className="block mt-2 text-sm text-gray-600 dark:text-gray-200 hover:underline"
                 >
                   Company
                 </a>
                 <a
                   href="#"
-                  className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline"
+                  className="block mt-2 text-sm text-gray-600 dark:text-gray-200 hover:underline"
                 >
                   community
                 </a>
                 <a
                   href="#"
-                  className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline"
+                  className="block mt-2 text-sm text-gray-600 dark:text-gray-200 hover:underline"
                 >
                   Careers
                 </a>
@@ -148,19 +148,19 @@ const Footer = () => {
                 </h3>
                 <a
                   href="#"
-                  className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline"
+                  className="block mt-2 text-sm text-gray-600 dark:text-gray-200 hover:underline"
                 >
                   Tec
                 </a>
                 <a
                   href="#"
-                  className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline"
+                  className="block mt-2 text-sm text-gray-600 dark:text-gray-200 hover:underline"
                 >
                   Music
                 </a>
                 <a
                   href="#"
-                  className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline"
+                  className="block mt-2 text-sm text-gray-600 dark:text-gray-200 hover:underline"
                 >
                   Videos
                 </a>
@@ -172,19 +172,19 @@ const Footer = () => {
                 </h3>
                 <a
                   href="#"
-                  className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline"
+                  className="block mt-2 text-sm text-gray-600 dark:text-gray-200 hover:underline"
                 >
                   Mega cloud
                 </a>
                 <a
                   href="#"
-                  className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline"
+                  className="block mt-2 text-sm text-gray-600 dark:text-gray-200 hover:underline"
                 >
                   Aperion UI
                 </a>
                 <a
                   href="#"
-                  className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline"
+                  className="block mt-2 text-sm text-gray-600 dark:text-gray-200 hover:underline"
                 >
                   Meraki UI
                 </a>
@@ -194,10 +194,10 @@ const Footer = () => {
                 <h3 className="text-gray-700 uppercase dark:text-white">
                   Contact
                 </h3>
-                <span className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">
+                <span className="block mt-2 text-sm text-gray-600 dark:text-gray-200 hover:underline">
                   +1 709 740 7069
                 </span>
-                <span className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">
+                <span className="block mt-2 text-sm text-gray-600 dark:text-gray-200 hover:underline">
                   vkampah28@gmail.com
                 </span>
               </div>
@@ -208,7 +208,7 @@ const Footer = () => {
         <hr className="h-px my-6 bg-gray-200 border-none dark:bg-gray-700" />
 
         <div>
-          <p className="text-center text-gray-500 dark:text-gray-400">
+          <p className="text-center text-gray-500 dark:text-gray-200">
             © Streamfy 2020 - All rights reserved
           </p>
           {/* <Alert message="This is an alert message" /> */}
