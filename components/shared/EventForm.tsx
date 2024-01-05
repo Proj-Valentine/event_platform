@@ -164,10 +164,6 @@ return (
               <FormItem className="w-full">
                 <FormControl>
                     <Dropdown value={field.value} onChangeHandler={field.onChange}/>
-                  {/* <Dropdown
-                    onChangeHandler={field.onChange}
-                    value={field.value}
-                  /> */}
                 </FormControl>
                 <FormMessage />
               </FormItem>

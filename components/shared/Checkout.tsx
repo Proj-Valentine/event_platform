@@ -5,6 +5,7 @@ import { loadStripe } from '@stripe/stripe-js';
 import { IEvent } from '@/lib/database/models/event.model';
 import { Button } from '../ui/button';
 import { checkoutOrder } from '@/lib/actions/order.actions';
+import Link from 'next/link';
 // import { checkoutOrder } from '@/lib/actions/order.actions';
 
 //  copied from stripe docs https://stripe.com/docs/checkout/quickstart?lang=node&client=next create a stripe promise and add  .env file
@@ -42,16 +43,33 @@ const Checkout = ({ event, userId }: { event: IEvent, userId: string }) => {
 
   return (
     <form action={onCheckout} method="post">
-      <Button
-        type="submit"
-        role="link"
-        size="lg"
-        className="button sm:w-fit dark:text-white"
-      >
-        {event.isFree ? "Get Ticket" : "Buy Ticket"}
-      </Button>
+      {/* Hide checkout button if you are the event organizer*/}
+
+      {event.organizer._id === userId ? (
+        <Link href={`/events/${event._id}/update`}>
+          <Button
+            type="submit"
+            role="link"
+            size="lg"
+            className="button sm:w-fit dark:text-white"
+          >
+            Update Event
+          </Button>
+        </Link>
+      ) : (
+        <Button
+          type="submit"
+          role="link"
+          size="lg"
+          className="button sm:w-fit dark:text-white"
+        >
+          {event.isFree ? "Get Free Ticket" : "Buy Ticket"}
+        </Button>
+      )}
+  
     </form>
   );
 }
 
 export default Checkout
+
