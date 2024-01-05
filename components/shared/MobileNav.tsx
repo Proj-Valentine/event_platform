@@ -25,7 +25,7 @@ const MobileNav = () => {
   return (
     <nav className="md:hidden dark:text-white">
       <Sheet>
-        <SheetTrigger className="align-middle bg:white dark:bg-black dark:text-white">
+        <SheetTrigger className="align-middle bg-white dark:bg-black dark:text-white">
           <Image
             src="/assets/icons/menu.svg"
             alt="menu"
@@ -34,7 +34,7 @@ const MobileNav = () => {
             className="cursor-pointer dark:bg-white rounded-lg"
           />
         </SheetTrigger>
-        <SheetContent className="flex flex-col gap-6 bg-gray-800 md:hidden dar:text-white text-white">
+        <SheetContent className="flex flex-col gap-6  bg-white dark:bg-gray-800 md:hidden dar:text-white">
           <Image
             src="/assets/images/logo.svg"
             alt="logo"

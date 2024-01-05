@@ -67,11 +67,11 @@ const EventDetails = async ({params: { id },searchParams}: SearchParamProps) => 
                 />
                 <div className="p-medium-16 lg:p-regular-20 flex flex-wrap items-center">
                   <p>
-                    {formatDateTime(event.startDateTime).dateOnly} -{" "}
-                    {formatDateTime(event.startDateTime).timeOnly}
-                  </p>
+                    Start: {formatDateTime(event.startDateTime).dateOnly} -{" "}
+                    {`${formatDateTime(event.startDateTime).timeOnly}`} 
+                  </p><br/>
                   <p>
-                    {formatDateTime(event.endDateTime).dateOnly} -{" "}
+                    End: {formatDateTime(event.endDateTime).dateOnly} -{" "}
                     {formatDateTime(event.endDateTime).timeOnly}
                   </p>
                 </div>
@@ -89,7 +89,7 @@ const EventDetails = async ({params: { id },searchParams}: SearchParamProps) => 
             </div>
 
             <div className="flex flex-col gap-2">
-              <p className="p-bold-20 text-grey-600 dark:text-grey-200">What You'll Learn:</p>
+              <p className="p-bold-20 text-grey-600 dark:text-slate-400">What You'll Learn:</p>
               <p className="p-medium-16 lg:p-regular-18">{event.description}</p>
               <p className="p-medium-16 lg:p-regular-18 truncate text-primary-500 underline">
                 {event.url}

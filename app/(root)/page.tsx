@@ -31,7 +31,7 @@ export default async function Home({ searchParams }: SearchParamProps) {
             </h1>
             <p className="p-regular-20 md:p-regular-24">
               Join our global community and gain invaluable insights from over
-              50,000 mentors from top-tier companies. Your journey to success
+              50,000 developrs and mentors from top-tier companies. Your journey to success
               starts here.
             </p>
             <Button size="lg" asChild className="button w-full sm:w-fit dark:text-white">

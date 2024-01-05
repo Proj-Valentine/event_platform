@@ -22,7 +22,7 @@ const SignedOutNavigation = () => {
               isActive && "text-primary-500"
             } flex-center p-medium-5 whitespace-nowrap dark:text-white`}
           >
-            <Button asChild className="rounded-full" size="lg">
+            <Button asChild className="rounded-full dark:text-white" size="md">
               <Link href={link.route}>{link.label}</Link>
             </Button>
           </li>

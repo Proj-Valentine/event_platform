@@ -15,10 +15,10 @@ const Header = () => {
   return (
     <header className="flex justify-between items-center py-4 px-8 dark:text-white border-b dark:bg-gray-900">
       <div className="wrapper flex items-center justify-between">
-        <Link href="/" className="w-36">
+        <Link href="/" className="w-36 mr-1">
           <Image
             src="/assets/images/logo.svg"
-            alt="evently logo"
+            alt="streamfy logo"
             width={128}
             height={38}
           />
@@ -46,7 +46,7 @@ const Header = () => {
 
           <SignedOut>
             {/*after signput navigate to sign in page */}
-            <Button asChild className="rounded-full md:hidden dark:text-white" size="lg">
+            <Button asChild className="rounded-full md:hidden dark:text-white" size="md">
               <Link href="/sign-in">Login In</Link>
             </Button>
             <SignedOutNavigation />
