@@ -48,8 +48,12 @@ const Card = ({ event, hasOrderLink, hidePrice }: CardProps) => {
       <div className="flex min-h-[230px] flex-col gap-3 p-5 md:gap-4">
         {!hidePrice && (
           <div className="flex gap-2">
-            <span className="p-semibold-14 w-min rounded-full bg-green-100 dark:bg-green-600 px-4 py-1 text-green-60">
+            <span className={event.isFree
+                ? "p-semibold-14 w-min rounded-full bg-green-100 dark:bg-green-600 px-4 py-1 text-green-60 animate-pulse"
+                : "p-semibold-14 w-min rounded-full bg-red-600 dark:bg-red-600 px-4 py-1 text-green-60"}>
               {event.isFree ? "FREE" : `$${event.price}`}
+            
+              
             </span>
             <p className="p-semibold-14 w-min rounded-full bg-grey-500/10 px-4 py-1 text-grey-500 dark:text-slate-300 line-clamp-1">
               {event.category.name}
@@ -80,6 +84,7 @@ const Card = ({ event, hasOrderLink, hidePrice }: CardProps) => {
                 alt="search"
                 width={10}
                 height={10}
+                className="animate-pulse"
               />
             </Link>
           )}
