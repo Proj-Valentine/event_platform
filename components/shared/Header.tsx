@@ -13,7 +13,7 @@ import { ModeToggle } from '../ui/toggle-mode'
 
 const Header = () => {
   return (
-    <header className="flex justify-between items-center py-4 px-8 dark:text-white border-b dark:bg-gray-900">
+    <header className="flex justify-between items-center py-4 px-8 dark:text-white dark:border-b dark:bg-gray-900">
       <div className="wrapper flex items-center justify-between">
         <Link href="/" className="w-36 mr-1">
           <Image
