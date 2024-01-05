@@ -383,7 +383,7 @@ return (
           type="submit"
           size="lg"
           disabled={form.formState.isSubmitting}
-          className="button col-span-2 w-full"
+          className="button col-span-2 w-full dark:text-white"
         >
           {form.formState.isSubmitting ? "Submitting..." : `${type} Event `}
         </Button>
